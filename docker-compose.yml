@@ -10,11 +10,12 @@ services:
       SERVICES: api
       PORT: 3000
     labels:
-      - "traefik.enable=true"   
-      - "traefik.backend=api"
-      - "traefik.port=3000"
-      - "traefik.frontend.entryPoints=http"
-      - "traefik.frontend.rule=PathPrefix:/"
+    - traefik.http.routers.api.rule=Host('api.localhost')
+    - traefik.port=80
+    - traefik.enable=true
+    networks:
+      - internal
+      - web
     depends_on:
       - nats
 
@@ -62,16 +63,21 @@ services:
 
   # Reverse proxy for API server
   traefik:
-    image: traefik:1.7
+    image: traefik:v2.4
     restart: unless-stopped
-    command: --web --docker --docker.domain=docker.localhost --logLevel=INFO --docker.exposedbydefault=false
     ports:
-      - "3000:80"
-      - "3001:8080"
+      - "80:80"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /dev/null:/traefik.toml
+      - ./traefik.toml:/traefik.toml
+      - ./traefik_dynamic.toml:/traefik_dynamic.toml
 
 volumes:
   db:
     driver: local
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false

@@ -1,0 +1,9 @@
+[http.middlewares.simpleAuth.basicAuth]
+  users = [
+    "admin:$apr1$xn9i47lk$LHN9vVZAnF4gEC8MeQu.v."
+]
+
+[http.routers.api]
+  rule = "Host(`monitor.localhost`)"
+  middlewares = ["simpleAuth"]
+  service = "api@internal"
