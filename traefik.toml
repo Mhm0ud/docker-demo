@@ -27,7 +27,7 @@ defaultEntryPoints = ["http", "https"]
   [entryPoints.https.http.tls]
     certResolver = "myresolver"
     [[entryPoints.https.http.tls.domains]]
-        main = "dev.mp.knawat.io"
+        main = "m.almasri622.knawat.io"
   [entryPoints.dashboard]
     address = ":8080"
 
@@ -41,7 +41,7 @@ defaultEntryPoints = ["http", "https"]
     endpoint = "unix:///var/run/docker.sock"
     watch = true
     exposedByDefault = false
-    domain = "dev.mp.knawat.io"
+    domain = "m.almasri622.knawat.io"
 
 [providers.file]
     filename = "traefik_dynamic.toml"

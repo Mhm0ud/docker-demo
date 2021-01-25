@@ -4,7 +4,7 @@
 ]
 
 [http.routers.api]
-    rule = "Host(`monitor.localhost`)"
+    rule = "Host(`m.almasri622.knawat.io`)"
     middlewares = ["simpleAuth"]
     service = "api@internal"
     entryPoints = "dashboard"

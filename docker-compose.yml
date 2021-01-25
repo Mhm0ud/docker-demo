@@ -13,7 +13,7 @@ services:
       - traefik.enable=true
       - traefik.http.services.api.loadbalancer.server.port=3000
       - traefik.http.routers.api.entrypoints=http,https
-      - traefik.http.routers.api.rule=Host(`api.localhost`)
+      - traefik.http.routers.api.rule=Host(`m.almasri622.knawat.io`)
     depends_on:
       - nats
 
