@@ -36,8 +36,8 @@ defaultEntryPoints = ["http", "https"]
 [certificatesResolvers.myresolver.acme]
   email = "it@knawat.com"
   storage = "acme.json"
-  [certificatesResolvers.myresolver.acme.httpChallenge]
-    entryPoint = "http"
+  [certificatesResolvers.myresolver.acme.dnsChallenge]
+    provider = "digitalocean"
 
 [providers.docker]
     endpoint = "unix:///var/run/docker.sock"
