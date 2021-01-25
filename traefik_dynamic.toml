@@ -1,0 +1,10 @@
+[http.middlewares.simpleAuth.basicAuth]
+    users = [
+        "__TRAEFIK_DASHBOARD_PASSWORD__"
+]
+
+[http.routers.api]
+    rule = "Host(`monitor.localhost`)"
+    middlewares = ["simpleAuth"]
+    service = "api@internal"
+    entryPoints = "dashboard"
