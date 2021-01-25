@@ -34,9 +34,7 @@ defaultEntryPoints = ["http", "https"]
 
 # Enable ACME (Let's Encrypt): automatic SSL
 #LetsEncrypt
-[certificatesResolvers]
-  [certificatesResolvers.myresolver]
-    [certificatesResolvers.myresolver.acme]
+[certificatesResolvers.myresolver.acme]
     email = "it@knawat.com"
     storage = "acme.json"
     [certificatesResolvers.myresolver.acme.httpChallenge]
