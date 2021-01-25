@@ -39,7 +39,6 @@ defaultEntryPoints = ["http", "https"]
     endpoint = "unix:///var/run/docker.sock"
     watch = true
     exposedByDefault = false
-    domain = "m.almasri622.knawat.io"
 
 [providers.file]
     filename = "traefik_dynamic.toml"
