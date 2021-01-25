@@ -28,7 +28,7 @@ defaultEntryPoints = ["http", "https"]
         main = "m.almasri622.knawat.io"
   [entryPoints.dashboard]
     address = ":8080"
-    [entryPoints.http.http.redirections.entryPoint]
+    [entryPoints.dashboard.http.redirections.entryPoint]
       to = "https"
       scheme = "https"
 
