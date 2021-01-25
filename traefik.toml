@@ -8,8 +8,6 @@ defaultEntryPoints = ["http", "https"]
 [api]
   debug = true
   dashboard = true
-  [api.statistics]
-    recentErrors = 10
 
 # Entrypoints, http and https
 [entryPoints]
