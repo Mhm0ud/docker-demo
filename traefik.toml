@@ -28,12 +28,16 @@ defaultEntryPoints = ["http", "https"]
         main = "m.almasri622.knawat.io"
   [entryPoints.dashboard]
     address = ":8080"
+    [entryPoints.http.http.redirections.entryPoint]
+      to = "https"
+      scheme = "https"
 
 # Enable ACME (Let's Encrypt): automatic SSL
 [certificatesResolvers.myresolver.acme]
   email = "it@knawat.com"
   storage = "acme.json"
-  [certificatesResolvers.myresolver.acme.tlsChallenge]
+  [certificatesResolvers.myresolver.acme.httpChallenge]
+    entryPoint = "http"
 
 [providers.docker]
     endpoint = "unix:///var/run/docker.sock"
