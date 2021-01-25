@@ -8,11 +8,11 @@ defaultEntryPoints = ["http", "https"]
 [api]
   debug = true
   dashboard = true
-  
-[certificatesResolvers.certRes.acme]
+
+[certificatesResolvers.letsencrypt.acme]
     email = "it@knawat.com"
     storage = "acme.json"
-    [certificatesResolvers.certRes.acme.httpChallenge]
+    [certificatesResolvers.letsencrypt.acme.httpChallenge]
         entryPoint = "http"
 # Entrypoints, http and https
 [entryPoints]
@@ -27,7 +27,7 @@ defaultEntryPoints = ["http", "https"]
   [entryPoints.https]
     address = ":443"
   [entryPoints.https.http.tls]
-    certResolver = "certRes"
+    certResolver = "letsencrypt"
     [[entryPoints.https.http.tls.domains]]
         main = "m.almasri622.knawat.io"
   [entryPoints.dashboard]
