@@ -12,8 +12,8 @@ defaultEntryPoints = ["http", "https"]
 [certificatesResolvers.letsencrypt.acme]
   email = "it@knawat.com"
   storage = "acme.json"
-  [certificatesResolvers.letsencrypt.acme.tlsChallenge]
-#    entryPoint = "http"
+  [certificatesResolvers.letsencrypt.acme.httpChallenge]
+    entryPoint = "http"
 # Entrypoints, http and https
 [entryPoints]
 # http should be redirected to https
