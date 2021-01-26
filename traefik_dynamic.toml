@@ -8,3 +8,5 @@
     middlewares = ["simpleAuth"]
     service = "api@internal"
     entryPoints = "dashboard"
+    [http.routers.api.tls]
+        certResolver = "letsencrypt"
